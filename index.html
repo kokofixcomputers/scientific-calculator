@@ -436,6 +436,55 @@
         .quick-btn:hover {
             background: #c7d2fe;
         }
+
+        .fraction {
+            display: inline-block;
+            text-align: center;
+            vertical-align: middle;
+            margin: 0 2px;
+        }
+        .numerator {
+            border-bottom: 1px solid #333;
+            display: block;
+            padding: 0 5px;
+        }
+        .denominator {
+            display: block;
+            padding: 0 5px;
+        }
+        
+        .tab-button {
+            padding: 10px 20px;
+            background-color: #f3f4f6;
+            border: none;
+            border-radius: 8px 8px 0 0;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-weight: 500;
+            white-space: nowrap;
+        }
+        
+        .tab-button.active {
+            background-color: white;
+            color: #3b82f6;
+            border-bottom: 2px solid #3b82f6;
+        }
+        
+        .tab-content {
+            display: none;
+            padding: 20px;
+            background-color: white;
+            border-radius: 0 0 8px 8px;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        .tabs-container {
+            overflow-x: auto;
+            white-space: nowrap;
+        }
         
         .info-box {
             background: #fffbeb;
@@ -975,49 +1024,104 @@
             
             <!-- Fractions Tool -->
             <div class="tool-content hidden" id="fractionsTool">
-                <div class="input-group">
-                    <label for="fractionInput">Enter value (fraction, decimal, %, or mixed number)</label>
-                    <div class="relative">
-                        <input type="text" id="fractionInput" placeholder="e.g., 0.75, 3/4, 75%, 1 1/2, 7/4"
-                            class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition">
-                        <button id="fractionClearBtn" class="absolute right-3 top-3 text-gray-400 hover:text-gray-600">
-                            <i class="fas fa-times-circle"></i>
+                <div class="tabs-container flex border-b border-gray-200 mb-4">
+                    <button class="tab-button active" data-tab="fractions-convert">Fraction Converter</button>
+                    <button class="tab-button" data-tab="fractions-eval">Fractions Evaluator</button>
+                </div>
+                
+                <!-- Fraction Converter Tab (existing functionality) -->
+                <div id="fractions-convert" class="tab-content active">
+                    <div class="input-group">
+                        <label for="fractionInput">Enter value (fraction, decimal, %, or mixed number)</label>
+                        <div class="relative">
+                            <input type="text" id="fractionInput" placeholder="e.g., 0.75, 3/4, 75%, 1 1/2, 7/4"
+                                class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition">
+                            <button id="fractionClearBtn" class="absolute right-3 top-3 text-gray-400 hover:text-gray-600">
+                                <i class="fas fa-times-circle"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="grid grid-cols-2 gap-3 mb-6">
+                        <button id="toFractionBtn" class="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded-lg transition flex items-center justify-center">
+                            <i class="fas fa-divide mr-2"></i> To Fraction
                         </button>
+                        <button id="toDecimalBtn" class="bg-indigo-500 hover:bg-indigo-600 text-white py-2 px-4 rounded-lg transition flex items-center justify-center">
+                            <i class="fas fa-decimal-point mr-2"></i> To Decimal
+                        </button>
+                        <button id="toPercentBtn" class="bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded-lg transition flex items-center justify-center">
+                            <i class="fas fa-percent mr-2"></i> To Percent
+                        </button>
+                        <button id="simplifyBtn" class="bg-purple-500 hover:bg-purple-600 text-white py-2 px-4 rounded-lg transition flex items-center justify-center">
+                            <i class="fas fa-sync-alt mr-2"></i> Simplify
+                        </button>
+                        <button id="toMixedBtn" class="bg-amber-500 hover:bg-amber-600 text-white py-2 px-4 rounded-lg transition flex items-center justify-center">
+                            <i class="fas fa-exchange-alt mr-2"></i> To Mixed Number
+                        </button>
+                        <button id="toImproperBtn" class="bg-red-500 hover:bg-red-600 text-white py-2 px-4 rounded-lg transition flex items-center justify-center">
+                            <i class="fas fa-exchange-alt mr-2"></i> To Improper Fraction
+                        </button>
+                    </div>
+                    
+                    <div class="results-container" id="fractionResults">
+                        <p>Your results will appear here</p>
+                    </div>
+                    
+                    <div class="info-box">
+                        <h3>Examples:</h3>
+                        <ul class="list-disc pl-5 space-y-1">
+                            <li>Enter "3/4" and click "To Decimal" to get 0.75</li>
+                            <li>Enter "7/4" and click "To Mixed Number" to get 1 3/4</li>
+                            <li>Enter "1 1/2" and click "To Improper Fraction" to get 3/2</li>
+                        </ul>
                     </div>
                 </div>
                 
-                <div class="grid grid-cols-2 gap-3 mb-6">
-                    <button id="toFractionBtn" class="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded-lg transition flex items-center justify-center">
-                        <i class="fas fa-divide mr-2"></i> To Fraction
+                <!-- Fractions Evaluator Tab (NEW) -->
+                <div id="fractions-eval" class="tab-content">
+                    <div class="mb-4">
+                        <label class="block text-gray-700 text-sm font-medium mb-2">Enter fractions to evaluate:</label>
+                        <div id="fraction-eval-inputs">
+                            <div class="input-group">
+                                <div class="input-wrapper">
+                                    <input type="text" class="number-input eval-fraction" placeholder="e.g., 1/2, 3/4, 2 1/3">
+                                    <button class="remove-btn"><i class="fas fa-times"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                        <button id="add-fraction-eval-input" class="mt-2 bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded-lg transition flex items-center justify-center">
+                            <i class="fas fa-plus mr-2"></i> Add Another Fraction
+                        </button>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <label class="block text-gray-700 text-sm font-medium mb-2">Select Operation:</label>
+                        <select id="fractionOperation" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition">
+                            <option value="add">Addition (+)</option>
+                            <option value="subtract">Subtraction (-)</option>
+                            <option value="multiply">Multiplication (×)</option>
+                            <option value="divide">Division (÷)</option>
+                            <option value="lcm">Find LCM</option>
+                        </select>
+                    </div>
+                    
+                    <button id="calculate-fractions" class="w-full bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-blue-600 hover:to-indigo-700 text-white py-3 px-4 rounded-lg transition flex items-center justify-center mb-4">
+                        <i class="fas fa-calculator mr-2"></i> Calculate
                     </button>
-                    <button id="toDecimalBtn" class="bg-indigo-500 hover:bg-indigo-600 text-white py-2 px-4 rounded-lg transition flex items-center justify-center">
-                        <i class="fas fa-decimal-point mr-2"></i> To Decimal
-                    </button>
-                    <button id="toPercentBtn" class="bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded-lg transition flex items-center justify-center">
-                        <i class="fas fa-percent mr-2"></i> To Percent
-                    </button>
-                    <button id="simplifyBtn" class="bg-purple-500 hover:bg-purple-600 text-white py-2 px-4 rounded-lg transition flex items-center justify-center">
-                        <i class="fas fa-sync-alt mr-2"></i> Simplify
-                    </button>
-                    <button id="toMixedBtn" class="bg-amber-500 hover:bg-amber-600 text-white py-2 px-4 rounded-lg transition flex items-center justify-center">
-                        <i class="fas fa-exchange-alt mr-2"></i> To Mixed Number
-                    </button>
-                    <button id="toImproperBtn" class="bg-red-500 hover:bg-red-600 text-white py-2 px-4 rounded-lg transition flex items-center justify-center">
-                        <i class="fas fa-exchange-alt mr-2"></i> To Improper Fraction
-                    </button>
-                </div>
-                
-                <div class="results-container" id="fractionResults">
-                    <p>Your results will appear here</p>
-                </div>
-                
-                <div class="info-box">
-                    <h3>Examples:</h3>
-                    <ul class="list-disc pl-5 space-y-1">
-                        <li>Enter "3/4" and click "To Decimal" to get 0.75</li>
-                        <li>Enter "7/4" and click "To Mixed Number" to get 1 3/4</li>
-                        <li>Enter "1 1/2" and click "To Improper Fraction" to get 3/2</li>
-                    </ul>
+                    
+                    <div class="results-container" id="fractionEvalResults">
+                        <p>Your calculation results will appear here</p>
+                    </div>
+                    
+                    <div class="info-box">
+                        <h3>About Fractions Evaluator:</h3>
+                        <ul class="list-disc pl-5 space-y-1">
+                            <li><strong>Addition/Subtraction:</strong> Finds common denominator and performs operation</li>
+                            <li><strong>Multiplication:</strong> Multiplies numerators and denominators</li>
+                            <li><strong>Division:</strong> Multiplies by reciprocal</li>
+                            <li><strong>LCM:</strong> Finds least common multiple of denominators</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
             
@@ -2338,6 +2442,431 @@
         // Display fraction error
         function displayFractionError(text) {
             fractionResults.innerHTML = `<p class="text-red-600 font-medium"><i class="fas fa-exclamation-circle mr-2"></i>${text}</p>`;
+        }
+        
+        // Fractions Evaluator functionality
+        const fractionEvalInputsContainer = document.getElementById('fraction-eval-inputs');
+        const addFractionEvalInputBtn = document.getElementById('add-fraction-eval-input');
+        const fractionOperation = document.getElementById('fractionOperation');
+        const calculateFractionsBtn = document.getElementById('calculate-fractions');
+        const fractionEvalResults = document.getElementById('fractionEvalResults');
+        
+        // Initialize fraction evaluator tabs
+        const fractionTabButtons = document.querySelectorAll('#fractionsTool .tab-button');
+        const fractionTabContents = document.querySelectorAll('#fractionsTool .tab-content');
+        
+        fractionTabButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const tabId = button.getAttribute('data-tab');
+                
+                // Update active tab button
+                fractionTabButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+                
+                // Show active tab content
+                fractionTabContents.forEach(content => content.classList.remove('active'));
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
+        
+        // Add fraction input field
+        function addFractionEvalInput(value = '') {
+            const inputGroup = document.createElement('div');
+            inputGroup.className = 'input-group';
+            
+            inputGroup.innerHTML = `
+                <div class="input-wrapper">
+                    <input type="text" class="number-input eval-fraction" value="${value}" placeholder="e.g., 1/2, 3/4, 2 1/3">
+                    <button class="remove-btn"><i class="fas fa-times"></i></button>
+                </div>
+            `;
+            
+            fractionEvalInputsContainer.appendChild(inputGroup);
+            
+            // Add event listener to remove button
+            const removeBtn = inputGroup.querySelector('.remove-btn');
+            removeBtn.addEventListener('click', () => {
+                if (fractionEvalInputsContainer.children.length > 1) {
+                    inputGroup.remove();
+                }
+            });
+        }
+        
+        // Initialize with two input fields
+        addFractionEvalInput('1/2');
+        addFractionEvalInput('1/3');
+        
+        // Add more input fields
+        addFractionEvalInputBtn.addEventListener('click', () => {
+            addFractionEvalInput();
+        });
+        
+        // Calculate fractions operation
+        calculateFractionsBtn.addEventListener('click', () => {
+            const fractionInputs = document.querySelectorAll('.eval-fraction');
+            const fractions = [];
+            
+            // Parse all fractions
+            for (let input of fractionInputs) {
+                const value = input.value.trim();
+                if (!value) continue;
+                
+                try {
+                    const fraction = parseFraction(value);
+                    fractions.push(fraction);
+                } catch (error) {
+                    displayFractionEvalError(`Invalid fraction: "${value}". Please use format like 1/2, 3/4, or 2 1/3`);
+                    return;
+                }
+            }
+            
+            if (fractions.length < 1) {
+                displayFractionEvalError('Please enter at least one valid fraction');
+                return;
+            }
+            
+            const operation = fractionOperation.value;
+            
+            try {
+                let result;
+                let steps = [];
+                
+                switch (operation) {
+                    case 'add':
+                        result = addFractions(fractions, steps);
+                        break;
+                    case 'subtract':
+                        result = subtractFractions(fractions, steps);
+                        break;
+                    case 'multiply':
+                        result = multiplyFractions(fractions, steps);
+                        break;
+                    case 'divide':
+                        result = divideFractions(fractions, steps);
+                        break;
+                    case 'lcm':
+                        result = findLCMOfFractions(fractions, steps);
+                        break;
+                    default:
+                        throw new Error('Invalid operation');
+                }
+                
+                displayFractionEvalResult(result, steps, operation, fractions);
+            } catch (error) {
+                displayFractionEvalError(error.message);
+            }
+        });
+        
+        // Parse fraction from string (supports proper, improper, and mixed numbers)
+        function parseFraction(str) {
+            // Handle mixed numbers (e.g., "2 1/3")
+            if (str.includes(' ')) {
+                const parts = str.split(' ');
+                if (parts.length !== 2) throw new Error('Invalid mixed number format');
+                
+                const whole = parseInt(parts[0]);
+                const fractionParts = parts[1].split('/');
+                
+                if (fractionParts.length !== 2) throw new Error('Invalid fraction part');
+                
+                const numerator = parseInt(fractionParts[0]);
+                const denominator = parseInt(fractionParts[1]);
+                
+                if (isNaN(whole) || isNaN(numerator) || isNaN(denominator)) {
+                    throw new Error('Invalid mixed number');
+                }
+                if (denominator === 0) throw new Error('Division by zero');
+                
+                return {
+                    numerator: whole * denominator + numerator,
+                    denominator: denominator,
+                    whole: whole,
+                    properNumerator: numerator
+                };
+            }
+            
+            // Handle simple fractions (e.g., "1/2")
+            if (str.includes('/')) {
+                const parts = str.split('/');
+                if (parts.length !== 2) throw new Error('Invalid fraction format');
+                
+                const numerator = parseInt(parts[0]);
+                const denominator = parseInt(parts[1]);
+                
+                if (isNaN(numerator) || isNaN(denominator)) throw new Error('Invalid fraction');
+                if (denominator === 0) throw new Error('Division by zero');
+                
+                return {
+                    numerator: numerator,
+                    denominator: denominator
+                };
+            }
+            
+            // Handle whole numbers (e.g., "5")
+            const whole = parseInt(str);
+            if (isNaN(whole)) throw new Error('Invalid number');
+            
+            return {
+                numerator: whole,
+                denominator: 1
+            };
+        }
+        
+        // Add fractions
+        function addFractions(fractions, steps) {
+            if (fractions.length === 1) return fractions[0];
+            
+            steps.push('Adding fractions:');
+            
+            // Find common denominator (LCM of all denominators)
+            const denominators = fractions.map(f => f.denominator);
+            const commonDenominator = calculateLCM(denominators);
+            steps.push(`Common denominator (LCM of ${denominators.join(', ')}): ${commonDenominator}`);
+            
+            // Convert all fractions to have common denominator and sum numerators
+            let sumNumerator = 0;
+            fractions.forEach((fraction, index) => {
+                const multiplier = commonDenominator / fraction.denominator;
+                const convertedNumerator = fraction.numerator * multiplier;
+                sumNumerator += convertedNumerator;
+                steps.push(`${fraction.numerator}/${fraction.denominator} = ${convertedNumerator}/${commonDenominator}`);
+            });
+            
+            steps.push(`Sum of numerators: ${sumNumerator}`);
+            steps.push(`Result: ${sumNumerator}/${commonDenominator}`);
+            
+            // Simplify result
+            const gcd = findGCD(sumNumerator, commonDenominator);
+            const simplifiedNumerator = sumNumerator / gcd;
+            const simplifiedDenominator = commonDenominator / gcd;
+            
+            if (gcd > 1) {
+                steps.push(`Simplify by dividing by GCD ${gcd}: ${simplifiedNumerator}/${simplifiedDenominator}`);
+            }
+            
+            return {
+                numerator: simplifiedNumerator,
+                denominator: simplifiedDenominator
+            };
+        }
+        
+        // Subtract fractions
+        function subtractFractions(fractions, steps) {
+            if (fractions.length === 1) return fractions[0];
+            
+            steps.push('Subtracting fractions:');
+            
+            // Find common denominator
+            const denominators = fractions.map(f => f.denominator);
+            const commonDenominator = calculateLCM(denominators);
+            steps.push(`Common denominator (LCM of ${denominators.join(', ')}): ${commonDenominator}`);
+            
+            // Convert all fractions to have common denominator
+            let resultNumerator = fractions[0].numerator * (commonDenominator / fractions[0].denominator);
+            steps.push(`First fraction: ${fractions[0].numerator}/${fractions[0].denominator} = ${resultNumerator}/${commonDenominator}`);
+            
+            // Subtract remaining fractions
+            for (let i = 1; i < fractions.length; i++) {
+                const convertedNumerator = fractions[i].numerator * (commonDenominator / fractions[i].denominator);
+                resultNumerator -= convertedNumerator;
+                steps.push(`Subtract ${fractions[i].numerator}/${fractions[i].denominator} = ${convertedNumerator}/${commonDenominator}`);
+            }
+            
+            steps.push(`Result: ${resultNumerator}/${commonDenominator}`);
+            
+            // Simplify result
+            const gcd = findGCD(Math.abs(resultNumerator), commonDenominator);
+            const simplifiedNumerator = resultNumerator / gcd;
+            const simplifiedDenominator = commonDenominator / gcd;
+            
+            if (gcd > 1) {
+                steps.push(`Simplify by dividing by GCD ${gcd}: ${simplifiedNumerator}/${simplifiedDenominator}`);
+            }
+            
+            return {
+                numerator: simplifiedNumerator,
+                denominator: simplifiedDenominator
+            };
+        }
+        
+        // Multiply fractions
+        function multiplyFractions(fractions, steps) {
+            steps.push('Multiplying fractions:');
+            
+            let productNumerator = 1;
+            let productDenominator = 1;
+            
+            fractions.forEach((fraction, index) => {
+                productNumerator *= fraction.numerator;
+                productDenominator *= fraction.denominator;
+                steps.push(`${index > 0 ? '× ' : ''}${fraction.numerator}/${fraction.denominator}`);
+            });
+            
+            steps.push(`Product: ${productNumerator}/${productDenominator}`);
+            
+            // Simplify result
+            const gcd = findGCD(productNumerator, productDenominator);
+            const simplifiedNumerator = productNumerator / gcd;
+            const simplifiedDenominator = productDenominator / gcd;
+            
+            if (gcd > 1) {
+                steps.push(`Simplify by dividing by GCD ${gcd}: ${simplifiedNumerator}/${simplifiedDenominator}`);
+            }
+            
+            return {
+                numerator: simplifiedNumerator,
+                denominator: simplifiedDenominator
+            };
+        }
+        
+        // Divide fractions
+        function divideFractions(fractions, steps) {
+            if (fractions.length === 1) return fractions[0];
+            
+            steps.push('Dividing fractions:');
+            
+            let resultNumerator = fractions[0].numerator;
+            let resultDenominator = fractions[0].denominator;
+            
+            steps.push(`Start with: ${resultNumerator}/${resultDenominator}`);
+            
+            // Divide by remaining fractions (multiply by reciprocals)
+            for (let i = 1; i < fractions.length; i++) {
+                if (fractions[i].numerator === 0) {
+                    throw new Error('Division by zero');
+                }
+                
+                resultNumerator *= fractions[i].denominator;
+                resultDenominator *= fractions[i].numerator;
+                steps.push(`÷ ${fractions[i].numerator}/${fractions[i].denominator} = × ${fractions[i].denominator}/${fractions[i].numerator}`);
+            }
+            
+            steps.push(`Result: ${resultNumerator}/${resultDenominator}`);
+            
+            // Simplify result
+            const gcd = findGCD(resultNumerator, resultDenominator);
+            const simplifiedNumerator = resultNumerator / gcd;
+            const simplifiedDenominator = resultDenominator / gcd;
+            
+            if (gcd > 1) {
+                steps.push(`Simplify by dividing by GCD ${gcd}: ${simplifiedNumerator}/${simplifiedDenominator}`);
+            }
+            
+            return {
+                numerator: simplifiedNumerator,
+                denominator: simplifiedDenominator
+            };
+        }
+        
+        // Find LCM of fractions (LCM of denominators)
+        function findLCMOfFractions(fractions, steps) {
+            steps.push('Finding LCM of denominators:');
+            
+            const denominators = fractions.map(f => f.denominator);
+            steps.push(`Denominators: ${denominators.join(', ')}`);
+            
+            const lcm = calculateLCM(denominators);
+            steps.push(`LCM(${denominators.join(', ')}) = ${lcm}`);
+            
+            // Return as a fraction with numerator 1 for display purposes
+            return {
+                numerator: 1,
+                denominator: lcm,
+                lcmValue: lcm
+            };
+        }
+        
+        // Calculate LCM of numbers
+        function calculateLCM(numbers) {
+            if (numbers.length === 0) return 0;
+            if (numbers.length === 1) return numbers[0];
+            
+            let result = numbers[0];
+            for (let i = 1; i < numbers.length; i++) {
+                result = lcm(result, numbers[i]);
+            }
+            return result;
+        }
+        
+        // Calculate LCM of two numbers
+        function lcm(a, b) {
+            return Math.abs(a * b) / findGCD(a, b);
+        }
+        
+        // Find GCD of two numbers
+        function findGCD(a, b) {
+            if (b === 0) return a;
+            return findGCD(b, a % b);
+        }
+        
+        // Display fraction evaluation result
+        function displayFractionEvalResult(result, steps, operation, originalFractions) {
+            let resultHTML = '';
+            
+            // Display steps
+            if (steps.length > 0) {
+                resultHTML += `<div class="mb-4">`;
+                resultHTML += `<h4 class="font-medium text-gray-700 mb-2">Calculation Steps:</h4>`;
+                resultHTML += `<div class="text-sm text-gray-600 space-y-1">`;
+                steps.forEach(step => {
+                    resultHTML += `<div>${step}</div>`;
+                });
+                resultHTML += `</div>`;
+                resultHTML += `</div>`;
+            }
+            
+            // Display final result
+            resultHTML += `<div class="border-t pt-4">`;
+            resultHTML += `<h4 class="font-medium text-gray-700 mb-2">Result:</h4>`;
+            
+            if (operation === 'lcm') {
+                resultHTML += `<p class="text-lg text-blue-700">LCM of denominators = <strong>${result.lcmValue}</strong></p>`;
+            } else {
+                const fractionStr = formatFraction(result.numerator, result.denominator);
+                const decimalValue = result.numerator / result.denominator;
+                
+                resultHTML += `<p class="text-lg text-blue-700 mb-2">${fractionStr}</p>`;
+                
+                if (result.denominator !== 1) {
+                    resultHTML += `<div class="text-gray-600">`;
+                    resultHTML += `<div>Decimal: ${decimalValue.toFixed(6)}</div>`;
+                    
+                    if (result.numerator > result.denominator) {
+                        const mixed = toMixedNumber(result.numerator, result.denominator);
+                        resultHTML += `<div>Mixed number: ${mixed}</div>`;
+                    }
+                    resultHTML += `</div>`;
+                }
+            }
+            
+            resultHTML += `</div>`;
+            
+            fractionEvalResults.innerHTML = resultHTML;
+        }
+        
+        // Display fraction evaluation error
+        function displayFractionEvalError(text) {
+            fractionEvalResults.innerHTML = `<p class="text-red-600 font-medium"><i class="fas fa-exclamation-circle mr-2"></i>${text}</p>`;
+        }
+        
+        // Helper function to format fraction with HTML
+        function formatFraction(numerator, denominator) {
+            if (denominator === 1) {
+                return `<span class="text-xl">${numerator}</span>`;
+            }
+            return `<div class="fraction inline-block mx-1"><div class="numerator">${numerator}</div><div class="denominator">${denominator}</div></div>`;
+        }
+        
+        // Helper function to convert to mixed number
+        function toMixedNumber(numerator, denominator) {
+            const whole = Math.floor(numerator / denominator);
+            const remainder = numerator % denominator;
+            
+            if (remainder === 0) {
+                return `${whole}`;
+            } else {
+                return `${whole} ${formatFraction(remainder, denominator)}`;
+            }
         }
         
         // Initialize all tools
