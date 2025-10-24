@@ -436,55 +436,6 @@
         .quick-btn:hover {
             background: #c7d2fe;
         }
-
-        .fraction {
-            display: inline-block;
-            text-align: center;
-            vertical-align: middle;
-            margin: 0 2px;
-        }
-        .numerator {
-            border-bottom: 1px solid #333;
-            display: block;
-            padding: 0 5px;
-        }
-        .denominator {
-            display: block;
-            padding: 0 5px;
-        }
-        
-        .tab-button {
-            padding: 10px 20px;
-            background-color: #f3f4f6;
-            border: none;
-            border-radius: 8px 8px 0 0;
-            cursor: pointer;
-            transition: all 0.2s;
-            font-weight: 500;
-            white-space: nowrap;
-        }
-        
-        .tab-button.active {
-            background-color: white;
-            color: #3b82f6;
-            border-bottom: 2px solid #3b82f6;
-        }
-        
-        .tab-content {
-            display: none;
-            padding: 20px;
-            background-color: white;
-            border-radius: 0 0 8px 8px;
-        }
-        
-        .tab-content.active {
-            display: block;
-        }
-        
-        .tabs-container {
-            overflow-x: auto;
-            white-space: nowrap;
-        }
         
         .info-box {
             background: #fffbeb;
@@ -555,6 +506,7 @@
             display: inline-block;
             text-align: center;
             vertical-align: middle;
+            margin: 0 2px;
         }
         .numerator {
             border-bottom: 1px solid #333;
@@ -564,6 +516,254 @@
         .denominator {
             display: block;
             padding: 0 5px;
+        }
+        
+        /* Time Calculator Styles */
+        .input-wrapper {
+            flex-grow: 1;
+            position: relative;
+        }
+        
+        .number-input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            outline: none;
+            transition: all 0.2s;
+        }
+        
+        .number-input:focus {
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
+        }
+        
+        .remove-btn {
+            position: absolute;
+            right: 8px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: #9ca3af;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+        
+        .remove-btn:hover {
+            color: #ef4444;
+        }
+        
+        .tab-button {
+            padding: 10px 20px;
+            background-color: #f3f4f6;
+            border: none;
+            border-radius: 8px 8px 0 0;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-weight: 500;
+            white-space: nowrap;
+        }
+        
+        .tab-button.active {
+            background-color: white;
+            color: #3b82f6;
+            border-bottom: 2px solid #3b82f6;
+        }
+        
+        .tab-content {
+            display: none;
+            padding: 20px;
+            background-color: white;
+            border-radius: 0 0 8px 8px;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        .time-input-group {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        
+        .time-input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            outline: none;
+            transition: all 0.2s;
+        }
+        
+        .time-input:focus {
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
+        }
+        
+        .time-unit-select {
+            padding: 10px;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            outline: none;
+            transition: all 0.2s;
+            background-color: white;
+        }
+        
+        .time-unit-select:focus {
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
+        }
+        
+        .operation-btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-weight: 500;
+        }
+        
+        .operation-btn.add {
+            background-color: #10b981;
+            color: white;
+        }
+        
+        .operation-btn.add:hover {
+            background-color: #059669;
+        }
+        
+        .operation-btn.subtract {
+            background-color: #ef4444;
+            color: white;
+        }
+        
+        .operation-btn.subtract:hover {
+            background-color: #dc2626;
+        }
+        
+        .date-time-input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            outline: none;
+            transition: all 0.2s;
+        }
+        
+        .date-time-input:focus {
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
+        }
+        
+        .tabs-container {
+            overflow-x: auto;
+            white-space: nowrap;
+        }
+        
+        .time-result {
+            font-size: 1.25rem;
+            font-weight: bold;
+            color: #3b82f6;
+        }
+        
+        .time-details {
+            margin-top: 10px;
+            padding-top: 10px;
+            border-top: 1px dashed #cbd5e1;
+        }
+        
+        .time-detail-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+        }
+        
+        .time-detail-label {
+            color: #6b7280;
+        }
+        
+        .time-detail-value {
+            font-weight: 500;
+            color: #374151;
+        }
+        
+        /* Number Analysis Styles */
+        .prime-factorization {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 5px;
+        }
+        
+        .factor {
+            display: inline-block;
+            padding: 4px 8px;
+            background-color: #dbeafe;
+            border-radius: 4px;
+            margin: 2px;
+        }
+        
+        .factor-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+            margin-top: 10px;
+        }
+        
+        .common-factors {
+            margin-top: 10px;
+            padding-top: 10px;
+            border-top: 1px dashed #cbd5e1;
+        }
+        
+        .prime-number {
+            display: inline-block;
+            padding: 8px 16px;
+            margin: 5px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 20px;
+            font-weight: bold;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s;
+        }
+        
+        .prime-number:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+        }
+        
+        .range-input {
+            width: 100%;
+            height: 8px;
+            -webkit-appearance: none;
+            appearance: none;
+            background: #e2e8f0;
+            border-radius: 4px;
+            outline: none;
+        }
+        
+        .range-input::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #4f46e5;
+            cursor: pointer;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        
+        .range-input::-moz-range-thumb {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #4f46e5;
+            cursor: pointer;
+            border: none;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
         }
         
         /* Desktop styles */
@@ -793,6 +993,16 @@
                 <li>
                     <a class="menu-item" data-tool="fractions">
                         <i class="fas fa-divide"></i> Fractions
+                    </a>
+                </li>
+                <li>
+                    <a class="menu-item" data-tool="time">
+                        <i class="fas fa-clock"></i> Time Calculator
+                    </a>
+                </li>
+                <li>
+                    <a class="menu-item" data-tool="analysis">
+                        <i class="fas fa-chart-bar"></i> Number Analysis
                     </a>
                 </li>
                 <li>
@@ -1125,6 +1335,296 @@
                 </div>
             </div>
             
+            <!-- Time Calculator Tool -->
+            <div class="tool-content hidden" id="timeTool">
+                <div class="tabs-container flex border-b border-gray-200">
+                    <button class="tab-button active" data-tab="time-calc">Time Calculator</button>
+                    <button class="tab-button" data-tab="duration">Duration Calculator</button>
+                    <button class="tab-button" data-tab="time-diff">Time Difference</button>
+                </div>
+                
+                <!-- Time Calculator Tab -->
+                <div id="time-calc" class="tab-content active">
+                    <div class="mb-4">
+                        <label class="block text-gray-700 text-sm font-medium mb-2">Start Date and Time:</label>
+                        <input type="datetime-local" id="startDateTime" class="date-time-input">
+                    </div>
+                    
+                    <div class="mb-4">
+                        <label class="block text-gray-700 text-sm font-medium mb-2">Time to Add/Subtract:</label>
+                        <div id="time-inputs">
+                            <div class="time-input-group">
+                                <input type="number" min="0" class="time-input" placeholder="Enter time value" value="16">
+                                <select class="time-unit-select">
+                                    <option value="minutes">Minutes</option>
+                                    <option value="hours">Hours</option>
+                                    <option value="days">Days</option>
+                                    <option value="weeks">Weeks</option>
+                                    <option value="months">Months</option>
+                                    <option value="years">Years</option>
+                                </select>
+                                <button class="remove-btn"><i class="fas fa-times"></i></button>
+                            </div>
+                        </div>
+                        <button id="add-time-input" class="mt-2 bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded-lg transition flex items-center justify-center">
+                            <i class="fas fa-plus mr-2"></i> Add Another Time Unit
+                        </button>
+                    </div>
+                    
+                    <div class="flex gap-4 mb-4">
+                        <button id="add-time" class="operation-btn add flex-1">
+                            <i class="fas fa-plus mr-2"></i> Add Time
+                        </button>
+                        <button id="subtract-time" class="operation-btn subtract flex-1">
+                            <i class="fas fa-minus mr-2"></i> Subtract Time
+                        </button>
+                    </div>
+                    
+                    <div class="results-container" id="time-result">
+                        <p>Result will appear here</p>
+                    </div>
+                </div>
+                
+                <!-- Duration Calculator Tab -->
+                <div id="duration" class="tab-content">
+                    <div class="mb-4">
+                        <label class="block text-gray-700 text-sm font-medium mb-2">Start Date and Time:</label>
+                        <input type="datetime-local" id="durationStart" class="date-time-input">
+                    </div>
+                    
+                    <div class="mb-4">
+                        <label class="block text-gray-700 text-sm font-medium mb-2">End Date and Time:</label>
+                        <input type="datetime-local" id="durationEnd" class="date-time-input">
+                    </div>
+                    
+                    <button id="calculate-duration" class="w-full bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-blue-600 hover:to-indigo-700 text-white py-3 px-4 rounded-lg transition flex items-center justify-center mb-4">
+                        <i class="fas fa-calculator mr-2"></i> Calculate Duration
+                    </button>
+                    
+                    <div class="results-container" id="duration-result">
+                        <p>Duration will appear here</p>
+                    </div>
+                </div>
+                
+                <!-- Time Difference Tab -->
+                <div id="time-diff" class="tab-content">
+                    <div class="mb-4">
+                        <label class="block text-gray-700 text-sm font-medium mb-2">First Date and Time:</label>
+                        <input type="datetime-local" id="firstDateTime" class="date-time-input">
+                    </div>
+                    
+                    <div class="mb-4">
+                        <label class="block text-gray-700 text-sm font-medium mb-2">Second Date and Time:</label>
+                        <input type="datetime-local" id="secondDateTime" class="date-time-input">
+                    </div>
+                    
+                    <button id="calculate-difference" class="w-full bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-blue-600 hover:to-indigo-700 text-white py-3 px-4 rounded-lg transition flex items-center justify-center mb-4">
+                        <i class="fas fa-calculator mr-2"></i> Calculate Difference
+                    </button>
+                    
+                    <div class="results-container" id="difference-result">
+                        <p>Difference will appear here</p>
+                    </div>
+                </div>
+                
+                <div class="info-box mt-4">
+                    <h3>About This Tool:</h3>
+                    <div class="text-sm">
+                        <p><strong>Time Calculator:</strong> Add or subtract time units (minutes, hours, days, weeks, months, years) from a specific date and time.</p>
+                        <p class="mt-1"><strong>Duration Calculator:</strong> Calculate the duration between two dates and times.</p>
+                        <p class="mt-1"><strong>Time Difference:</strong> Find the difference between two dates and times in various units.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Number Analysis Tool -->
+            <div class="tool-content hidden" id="analysisTool">
+                <div class="tabs-container flex border-b border-gray-200">
+                    <button class="tab-button active" data-tab="lcm">LCM Calculator</button>
+                    <button class="tab-button" data-tab="gcf">GCF Calculator</button>
+                    <button class="tab-button" data-tab="prime">Prime Factorization</button>
+                    <button class="tab-button" data-tab="factors">List Factors</button>
+                    <button class="tab-button" data-tab="primes">Find Primes</button>
+                </div>
+                
+                <!-- LCM Calculator Tab -->
+                <div id="lcm" class="tab-content active">
+                    <div class="mb-4">
+                        <label class="block text-gray-700 text-sm font-medium mb-2">Enter numbers to find LCM:</label>
+                        <div id="lcm-inputs">
+                            <div class="input-group">
+                                <div class="input-wrapper">
+                                    <input type="number" min="1" class="number-input lcm-number" placeholder="Enter a positive integer">
+                                    <button class="remove-btn"><i class="fas fa-times"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                        <button id="add-lcm-input" class="mt-2 bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded-lg transition flex items-center justify-center">
+                            <i class="fas fa-plus mr-2"></i> Add Another Number
+                        </button>
+                    </div>
+                    
+                    <button id="calculate-lcm" class="w-full bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-blue-600 hover:to-indigo-700 text-white py-3 px-4 rounded-lg transition flex items-center justify-center mb-4">
+                        <i class="fas fa-calculator mr-2"></i> Calculate LCM
+                    </button>
+                    
+                    <div class="results-container" id="lcm-result">
+                        <p>LCM will appear here</p>
+                    </div>
+                </div>
+                
+                <!-- GCF Calculator Tab -->
+                <div id="gcf" class="tab-content">
+                    <div class="mb-4">
+                        <label class="block text-gray-700 text-sm font-medium mb-2">Enter numbers to find GCF:</label>
+                        <div id="gcf-inputs">
+                            <div class="input-group">
+                                <div class="input-wrapper">
+                                    <input type="number" min="1" class="number-input gcf-number" placeholder="Enter a positive integer">
+                                    <button class="remove-btn"><i class="fas fa-times"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                        <button id="add-gcf-input" class="mt-2 bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded-lg transition flex items-center justify-center">
+                            <i class="fas fa-plus mr-2"></i> Add Another Number
+                        </button>
+                    </div>
+                    
+                    <button id="calculate-gcf" class="w-full bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-blue-600 hover:to-indigo-700 text-white py-3 px-4 rounded-lg transition flex items-center justify-center mb-4">
+                        <i class="fas fa-calculator mr-2"></i> Calculate GCF
+                    </button>
+                    
+                    <div class="results-container" id="gcf-result">
+                        <p>GCF will appear here</p>
+                    </div>
+                </div>
+                
+                <!-- Prime Factorization Tab -->
+                <div id="prime" class="tab-content">
+                    <div class="mb-4">
+                        <label class="block text-gray-700 text-sm font-medium mb-2" for="prime-input">
+                            Enter a number to factorize:
+                        </label>
+                        <input type="number" min="2" id="prime-input" placeholder="Enter a positive integer ≥ 2"
+                            class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition">
+                    </div>
+                    
+                    <button id="calculate-prime" class="w-full bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-blue-600 hover:to-indigo-700 text-white py-3 px-4 rounded-lg transition flex items-center justify-center mb-4">
+                        <i class="fas fa-calculator mr-2"></i> Factorize
+                    </button>
+                    
+                    <div class="results-container" id="prime-result">
+                        <p>Prime factorization will appear here</p>
+                    </div>
+                </div>
+                
+                <!-- List Factors Tab -->
+                <div id="factors" class="tab-content">
+                    <div class="mb-4">
+                        <label class="block text-gray-700 text-sm font-medium mb-2" for="factors-input">
+                            Enter a number to list its factors:
+                        </label>
+                        <input type="number" min="1" id="factors-input" placeholder="Enter a positive integer"
+                            class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition">
+                    </div>
+                    
+                    <button id="calculate-factors" class="w-full bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-blue-600 hover:to-indigo-700 text-white py-3 px-4 rounded-lg transition flex items-center justify-center mb-4">
+                        <i class="fas fa-calculator mr-2"></i> List Factors
+                    </button>
+                    
+                    <div class="results-container" id="factors-result">
+                        <p>Factors will appear here</p>
+                    </div>
+                </div>
+                
+                <!-- Find Primes Tab -->
+                <div id="primes" class="tab-content">
+                    <div class="mb-4">
+                        <label class="block text-gray-700 text-sm font-medium mb-2">
+                            Select Range
+                        </label>
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-sm text-gray-600">Minimum Value</span>
+                            <span class="text-sm text-gray-600">Maximum Value</span>
+                        </div>
+                        <div class="flex items-center space-x-4 mb-4">
+                            <input type="number" id="minValue" min="1" max="1000" value="30" 
+                                class="w-20 px-3 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition text-center">
+                            <span class="text-gray-500">to</span>
+                            <input type="number" id="maxValue" min="1" max="1000" value="50" 
+                                class="w-20 px-3 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition text-center">
+                        </div>
+                        <div class="flex items-center justify-between text-sm text-gray-600 mb-1">
+                            <span>1</span>
+                            <span>500</span>
+                            <span>1000</span>
+                        </div>
+                        <div class="relative">
+                            <input type="range" id="minRange" min="1" max="1000" value="30" class="range-input absolute top-0 w-full">
+                            <input type="range" id="maxRange" min="1" max="1000" value="50" class="range-input absolute top-0 w-full">
+                        </div>
+                        <div class="h-8"></div> <!-- Spacer for the dual range slider -->
+                    </div>
+                    
+                    <button id="findPrimesBtn" class="w-full bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-blue-600 hover:to-indigo-700 text-white py-3 px-4 rounded-lg transition flex items-center justify-center mb-4">
+                        <i class="fas fa-search mr-2"></i> Find Prime Numbers
+                    </button>
+                    
+                    <div class="results-container" id="primes-result">
+                        <h3 class="text-gray-700 font-medium mb-2">Prime Numbers in Range:</h3>
+                        <div id="rangeDisplay" class="text-center text-gray-600 mb-4">
+                            Between 30 and 50
+                        </div>
+                        <div id="primes-list" class="min-h-[100px] flex flex-wrap justify-center items-center p-4">
+                            <div class="prime-number fade-in">31</div>
+                            <div class="prime-number fade-in">37</div>
+                            <div class="prime-number fade-in">41</div>
+                            <div class="prime-number fade-in">43</div>
+                            <div class="prime-number fade-in">47</div>
+                        </div>
+                        <div id="countDisplay" class="text-center text-gray-700 mt-4">
+                            Found 5 prime numbers
+                        </div>
+                    </div>
+                    
+                    <!-- Quick Range Buttons -->
+                    <div class="mt-6">
+                        <h3 class="text-gray-700 font-medium mb-3">Quick Ranges:</h3>
+                        <div class="grid grid-cols-2 md:grid-cols-3 gap-2">
+                            <button class="quick-range bg-blue-100 hover:bg-blue-200 text-blue-700 py-2 px-3 rounded-lg transition text-sm" data-min="1" data-max="50">
+                                1 - 50
+                            </button>
+                            <button class="quick-range bg-blue-100 hover:bg-blue-200 text-blue-700 py-2 px-3 rounded-lg transition text-sm" data-min="30" data-max="50">
+                                30 - 50
+                            </button>
+                            <button class="quick-range bg-blue-100 hover:bg-blue-200 text-blue-700 py-2 px-3 rounded-lg transition text-sm" data-min="50" data-max="100">
+                                50 - 100
+                            </button>
+                            <button class="quick-range bg-blue-100 hover:bg-blue-200 text-blue-700 py-2 px-3 rounded-lg transition text-sm" data-min="1" data-max="100">
+                                1 - 100
+                            </button>
+                            <button class="quick-range bg-blue-100 hover:bg-blue-200 text-blue-700 py-2 px-3 rounded-lg transition text-sm" data-min="100" data-max="200">
+                                100 - 200
+                            </button>
+                            <button class="quick-range bg-blue-100 hover:bg-blue-200 text-blue-700 py-2 px-3 rounded-lg transition text-sm" data-min="500" data-max="1000">
+                                500 - 1000
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="info-box mt-4">
+                    <h3>About This Tool:</h3>
+                    <div class="text-sm">
+                        <p><strong>LCM (Least Common Multiple):</strong> The smallest positive integer that is divisible by all the given numbers.</p>
+                        <p class="mt-1"><strong>GCF (Greatest Common Factor):</strong> The largest positive integer that divides all the given numbers without a remainder.</p>
+                        <p class="mt-1"><strong>Prime Factorization:</strong> Expressing a number as a product of its prime factors.</p>
+                        <p class="mt-1"><strong>Factors:</strong> All numbers that divide evenly into the given number.</p>
+                        <p class="mt-1"><strong>Prime Numbers:</strong> Natural numbers greater than 1 that have no positive divisors other than 1 and themselves.</p>
+                    </div>
+                </div>
+            </div>
+            
             <!-- Placeholder for other tools -->
             <div class="tool-content hidden" id="randomTool">
                 <div class="results-container">
@@ -1181,6 +1681,8 @@
                 'rounding': 'exchange-alt',
                 'converter': 'ruler-combined',
                 'fractions': 'divide',
+                'time': 'clock',
+                'analysis': 'chart-bar',
                 'random': 'random',
                 'percentage': 'chart-pie'
             };
@@ -1193,6 +1695,8 @@
                 'rounding': 'Number Rounding',
                 'converter': 'Unit Converter',
                 'fractions': 'Fractions',
+                'time': 'Time Calculator',
+                'analysis': 'Number Analysis',
                 'random': 'Random Number',
                 'percentage': 'Percentage'
             };
@@ -2381,10 +2885,14 @@
             return b ? findGCD(b, a % b) : a;
         }
         
-        // Helper function to parse mixed numbers (e.g., "1 3/4")
+        // Helper function to parse mixed numbers (e.g., "1 3/4" or "-1 3/4")
         function parseMixedNumber(value) {
-            if (value.includes(' ')) {
-                const parts = value.split(' ');
+            // Handle negative numbers
+            const isNegative = value.startsWith('-');
+            let workingValue = isNegative ? value.substring(1) : value;
+            
+            if (workingValue.includes(' ')) {
+                const parts = workingValue.split(' ');
                 if (parts.length !== 2) throw new Error('Invalid mixed number format');
                 
                 const whole = parseFloat(parts[0]);
@@ -2400,9 +2908,10 @@
                 }
                 if (denominator === 0) throw new Error('Division by zero');
                 
-                return whole + (numerator / denominator);
-            } else if (value.includes('/')) {
-                const parts = value.split('/');
+                const result = whole + (numerator / denominator);
+                return isNegative ? -result : result;
+            } else if (workingValue.includes('/')) {
+                const parts = workingValue.split('/');
                 if (parts.length !== 2) throw new Error('Invalid fraction');
                 
                 const numerator = parseFloat(parts[0]);
@@ -2411,27 +2920,39 @@
                 if (isNaN(numerator) || isNaN(denominator)) throw new Error('Invalid fraction');
                 if (denominator === 0) throw new Error('Division by zero');
                 
-                return numerator / denominator;
+                const result = numerator / denominator;
+                return isNegative ? -result : result;
             } else {
-                return parseFloat(value);
+                const result = parseFloat(workingValue);
+                return isNegative ? -result : result;
             }
         }
         
         // Helper function to convert to mixed number
         function toMixedNumber(numerator, denominator) {
-            const whole = Math.floor(numerator / denominator);
-            const remainder = numerator % denominator;
+            const isNegative = numerator < 0;
+            const absNumerator = Math.abs(numerator);
+            
+            const whole = Math.floor(absNumerator / denominator);
+            const remainder = absNumerator % denominator;
             
             if (remainder === 0) {
-                return `${whole}`;
+                return isNegative ? `-${whole}` : `${whole}`;
             } else {
-                return `${whole} ${formatFraction(remainder, denominator)}`;
+                const mixed = `${whole} ${formatFraction(remainder, denominator)}`;
+                return isNegative ? `-${mixed}` : mixed;
             }
         }
         
         // Helper function to format fraction with HTML
         function formatFraction(numerator, denominator) {
-            return `<div class="fraction"><div class="numerator">${numerator}</div><div class="denominator">${denominator}</div></div>`;
+            const isNegative = numerator < 0;
+            const absNumerator = Math.abs(numerator);
+            
+            if (denominator === 1) {
+                return `<span class="text-xl">${isNegative ? '-' : ''}${absNumerator}</span>`;
+            }
+            return `${isNegative ? '-' : ''}<div class="fraction inline-block mx-1"><div class="numerator">${absNumerator}</div><div class="denominator">${denominator}</div></div>`;
         }
         
         // Display fraction result
@@ -2558,61 +3079,71 @@
         });
         
         // Parse fraction from string (supports proper, improper, and mixed numbers)
-        function parseFraction(str) {
-            // Handle mixed numbers (e.g., "2 1/3")
-            if (str.includes(' ')) {
-                const parts = str.split(' ');
-                if (parts.length !== 2) throw new Error('Invalid mixed number format');
-                
-                const whole = parseInt(parts[0]);
-                const fractionParts = parts[1].split('/');
-                
-                if (fractionParts.length !== 2) throw new Error('Invalid fraction part');
-                
-                const numerator = parseInt(fractionParts[0]);
-                const denominator = parseInt(fractionParts[1]);
-                
-                if (isNaN(whole) || isNaN(numerator) || isNaN(denominator)) {
-                    throw new Error('Invalid mixed number');
-                }
-                if (denominator === 0) throw new Error('Division by zero');
-                
-                return {
-                    numerator: whole * denominator + numerator,
-                    denominator: denominator,
-                    whole: whole,
-                    properNumerator: numerator
-                };
-            }
+    function parseFraction(str) {
+        // Handle negative numbers
+        const isNegative = str.startsWith('-');
+        let workingStr = isNegative ? str.substring(1) : str;
+        
+        // Handle mixed numbers (e.g., "2 1/3" or "-2 1/3")
+        if (workingStr.includes(' ')) {
+            const parts = workingStr.split(' ');
+            if (parts.length !== 2) throw new Error('Invalid mixed number format');
             
-            // Handle simple fractions (e.g., "1/2")
-            if (str.includes('/')) {
-                const parts = str.split('/');
-                if (parts.length !== 2) throw new Error('Invalid fraction format');
-                
-                const numerator = parseInt(parts[0]);
-                const denominator = parseInt(parts[1]);
-                
-                if (isNaN(numerator) || isNaN(denominator)) throw new Error('Invalid fraction');
-                if (denominator === 0) throw new Error('Division by zero');
-                
-                return {
-                    numerator: numerator,
-                    denominator: denominator
-                };
-            }
+            const whole = parseInt(parts[0]);
+            const fractionParts = parts[1].split('/');
             
-            // Handle whole numbers (e.g., "5")
-            const whole = parseInt(str);
-            if (isNaN(whole)) throw new Error('Invalid number');
+            if (fractionParts.length !== 2) throw new Error('Invalid fraction part');
+            
+            const numerator = parseInt(fractionParts[0]);
+            const denominator = parseInt(fractionParts[1]);
+            
+            if (isNaN(whole) || isNaN(numerator) || isNaN(denominator)) {
+                throw new Error('Invalid mixed number');
+            }
+            if (denominator === 0) throw new Error('Division by zero');
+            
+            // Calculate the improper fraction
+            const improperNumerator = whole * denominator + numerator;
             
             return {
-                numerator: whole,
-                denominator: 1
+                numerator: isNegative ? -improperNumerator : improperNumerator,
+                denominator: denominator,
+                whole: isNegative ? -whole : whole,
+                properNumerator: isNegative ? -numerator : numerator
             };
         }
         
-        // Add fractions
+        // Handle simple fractions (e.g., "1/2" or "-1/2")
+        if (workingStr.includes('/')) {
+            const parts = workingStr.split('/');
+            if (parts.length !== 2) throw new Error('Invalid fraction format');
+            
+            const numerator = parseInt(parts[0]);
+            const denominator = parseInt(parts[1]);
+            
+            if (isNaN(numerator) || isNaN(denominator)) throw new Error('Invalid fraction');
+            if (denominator === 0) throw new Error('Division by zero');
+            
+            return {
+                numerator: isNegative ? -numerator : numerator,
+                denominator: denominator
+            };
+        }
+        
+        // Handle whole numbers (e.g., "5" or "-5")
+        const whole = parseInt(workingStr);
+        if (isNaN(whole)) throw new Error('Invalid number');
+        
+        return {
+            numerator: isNegative ? -whole : whole,
+            denominator: 1
+        };
+    }
+        
+        // In addFractions, subtractFractions, multiplyFractions, divideFractions functions
+        // Update the step displays to properly handle negative fractions
+        
+        // Example update for addFractions:
         function addFractions(fractions, steps) {
             if (fractions.length === 1) return fractions[0];
             
@@ -2629,14 +3160,18 @@
                 const multiplier = commonDenominator / fraction.denominator;
                 const convertedNumerator = fraction.numerator * multiplier;
                 sumNumerator += convertedNumerator;
-                steps.push(`${fraction.numerator}/${fraction.denominator} = ${convertedNumerator}/${commonDenominator}`);
+                
+                // Display negative fractions properly in steps
+                const sign = fraction.numerator < 0 ? '-' : '';
+                const absNumerator = Math.abs(fraction.numerator);
+                steps.push(`${sign}${absNumerator}/${fraction.denominator} = ${convertedNumerator}/${commonDenominator}`);
             });
             
             steps.push(`Sum of numerators: ${sumNumerator}`);
             steps.push(`Result: ${sumNumerator}/${commonDenominator}`);
             
             // Simplify result
-            const gcd = findGCD(sumNumerator, commonDenominator);
+            const gcd = findGCD(Math.abs(sumNumerator), commonDenominator);
             const simplifiedNumerator = sumNumerator / gcd;
             const simplifiedDenominator = commonDenominator / gcd;
             
@@ -2799,7 +3334,7 @@
             return findGCD(b, a % b);
         }
         
-        // Display fraction evaluation result
+        // Display fraction evaluation result - update the mixed number display part
         function displayFractionEvalResult(result, steps, operation, originalFractions) {
             let resultHTML = '';
             
@@ -2831,7 +3366,7 @@
                     resultHTML += `<div class="text-gray-600">`;
                     resultHTML += `<div>Decimal: ${decimalValue.toFixed(6)}</div>`;
                     
-                    if (result.numerator > result.denominator) {
+                    if (Math.abs(result.numerator) > result.denominator) {
                         const mixed = toMixedNumber(result.numerator, result.denominator);
                         resultHTML += `<div>Mixed number: ${mixed}</div>`;
                     }
@@ -2849,24 +3384,748 @@
             fractionEvalResults.innerHTML = `<p class="text-red-600 font-medium"><i class="fas fa-exclamation-circle mr-2"></i>${text}</p>`;
         }
         
-        // Helper function to format fraction with HTML
-        function formatFraction(numerator, denominator) {
-            if (denominator === 1) {
-                return `<span class="text-xl">${numerator}</span>`;
-            }
-            return `<div class="fraction inline-block mx-1"><div class="numerator">${numerator}</div><div class="denominator">${denominator}</div></div>`;
+        // Time Calculator functionality
+        const timeInputsContainer = document.getElementById('time-inputs');
+        const addTimeInputBtn = document.getElementById('add-time-input');
+        const addTimeBtn = document.getElementById('add-time');
+        const subtractTimeBtn = document.getElementById('subtract-time');
+        const timeResult = document.getElementById('time-result');
+        const calculateDurationBtn = document.getElementById('calculate-duration');
+        const durationResult = document.getElementById('duration-result');
+        const calculateDifferenceBtn = document.getElementById('calculate-difference');
+        const differenceResult = document.getElementById('difference-result');
+        
+        // Initialize time calculator tabs
+        const timeTabButtons = document.querySelectorAll('#timeTool .tab-button');
+        const timeTabContents = document.querySelectorAll('#timeTool .tab-content');
+        
+        timeTabButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const tabId = button.getAttribute('data-tab');
+                
+                // Update active tab button
+                timeTabButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+                
+                // Show active tab content
+                timeTabContents.forEach(content => content.classList.remove('active'));
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
+        
+        // Set default datetime values to current date/time
+        const now = new Date();
+        const formattedNow = formatDateTimeLocal(now);
+        
+        document.getElementById('startDateTime').value = formattedNow;
+        document.getElementById('durationStart').value = formattedNow;
+        document.getElementById('durationEnd').value = formatDateTimeLocal(new Date(now.getTime() + 24 * 60 * 60 * 1000)); // Tomorrow
+        document.getElementById('firstDateTime').value = formattedNow;
+        document.getElementById('secondDateTime').value = formatDateTimeLocal(new Date(now.getTime() + 2 * 24 * 60 * 60 * 1000)); // Day after tomorrow
+        
+        // Add time input field
+        function addTimeInput(value = '', unit = 'hours') {
+            const timeInputGroup = document.createElement('div');
+            timeInputGroup.className = 'time-input-group';
+            
+            timeInputGroup.innerHTML = `
+                <input type="number" min="0" class="time-input" placeholder="Enter time value" value="${value}">
+                <select class="time-unit-select">
+                    <option value="minutes" ${unit === 'minutes' ? 'selected' : ''}>Minutes</option>
+                    <option value="hours" ${unit === 'hours' ? 'selected' : ''}>Hours</option>
+                    <option value="days" ${unit === 'days' ? 'selected' : ''}>Days</option>
+                    <option value="weeks" ${unit === 'weeks' ? 'selected' : ''}>Weeks</option>
+                    <option value="months" ${unit === 'months' ? 'selected' : ''}>Months</option>
+                    <option value="years" ${unit === 'years' ? 'selected' : ''}>Years</option>
+                </select>
+                <button class="remove-btn"><i class="fas fa-times"></i></button>
+            `;
+            
+            timeInputsContainer.appendChild(timeInputGroup);
+            
+            // Add event listener to remove button
+            const removeBtn = timeInputGroup.querySelector('.remove-btn');
+            removeBtn.addEventListener('click', () => {
+                if (timeInputsContainer.children.length > 1) {
+                    timeInputGroup.remove();
+                }
+            });
         }
         
-        // Helper function to convert to mixed number
-        function toMixedNumber(numerator, denominator) {
-            const whole = Math.floor(numerator / denominator);
-            const remainder = numerator % denominator;
+        // Initialize with one input field
+        addTimeInput('16', 'hours');
+        
+        // Add more input fields
+        addTimeInputBtn.addEventListener('click', () => {
+            addTimeInput('', 'hours');
+        });
+        
+        // Add time
+        addTimeBtn.addEventListener('click', () => {
+            calculateTime('add');
+        });
+        
+        // Subtract time
+        subtractTimeBtn.addEventListener('click', () => {
+            calculateTime('subtract');
+        });
+        
+        // Duration Calculator functionality
+        calculateDurationBtn.addEventListener('click', () => {
+            const start = document.getElementById('durationStart').value;
+            const end = document.getElementById('durationEnd').value;
             
-            if (remainder === 0) {
-                return `${whole}`;
-            } else {
-                return `${whole} ${formatFraction(remainder, denominator)}`;
+            if (!start || !end) {
+                durationResult.innerHTML = '<p class="text-red-600">Please enter both start and end dates</p>';
+                return;
             }
+            
+            const startDate = new Date(start);
+            const endDate = new Date(end);
+            
+            if (startDate >= endDate) {
+                durationResult.innerHTML = '<p class="text-red-600">End date must be after start date</p>';
+                return;
+            }
+            
+            const duration = calculateDuration(startDate, endDate);
+            durationResult.innerHTML = `<div class="fade-in">
+                <p class="time-result">${duration.formatted}</p>
+                <div class="time-details">
+                    <div class="time-detail-item">
+                        <span class="time-detail-label">Total Days:</span>
+                        <span class="time-detail-value">${duration.days}</span>
+                    </div>
+                    <div class="time-detail-item">
+                        <span class="time-detail-label">Total Hours:</span>
+                        <span class="time-detail-value">${duration.totalHours}</span>
+                    </div>
+                    <div class="time-detail-item">
+                        <span class="time-detail-label">Total Minutes:</span>
+                        <span class="time-detail-value">${duration.totalMinutes}</span>
+                    </div>
+                </div>
+            </div>`;
+        });
+        
+        // Time Difference functionality
+        calculateDifferenceBtn.addEventListener('click', () => {
+            const first = document.getElementById('firstDateTime').value;
+            const second = document.getElementById('secondDateTime').value;
+            
+            if (!first || !second) {
+                differenceResult.innerHTML = '<p class="text-red-600">Please enter both dates</p>';
+                return;
+            }
+            
+            const firstDate = new Date(first);
+            const secondDate = new Date(second);
+            
+            const diff = calculateTimeDifference(firstDate, secondDate);
+            differenceResult.innerHTML = `<div class="fade-in">
+                <p class="time-result">${diff.formatted}</p>
+                <div class="time-details">
+                    <div class="time-detail-item">
+                        <span class="time-detail-label">Days:</span>
+                        <span class="time-detail-value">${diff.days}</span>
+                    </div>
+                    <div class="time-detail-item">
+                        <span class="time-detail-label">Hours:</span>
+                        <span class="time-detail-value">${diff.hours}</span>
+                    </div>
+                    <div class="time-detail-item">
+                        <span class="time-detail-label">Minutes:</span>
+                        <span class="time-detail-value">${diff.minutes}</span>
+                    </div>
+                    <div class="time-detail-item">
+                        <span class="time-detail-label">Seconds:</span>
+                        <span class="time-detail-value">${diff.seconds}</span>
+                    </div>
+                </div>
+            </div>`;
+        });
+        
+        // Helper functions for time calculator
+        
+        // Format date for datetime-local input
+        function formatDateTimeLocal(date) {
+            const year = date.getFullYear();
+            const month = String(date.getMonth() + 1).padStart(2, '0');
+            const day = String(date.getDate()).padStart(2, '0');
+            const hours = String(date.getHours()).padStart(2, '0');
+            const minutes = String(date.getMinutes()).padStart(2, '0');
+            
+            return `${year}-${month}-${day}T${hours}:${minutes}`;
+        }
+        
+        // Calculate time (add or subtract)
+        function calculateTime(operation) {
+            const startDateTime = document.getElementById('startDateTime').value;
+            
+            if (!startDateTime) {
+                timeResult.innerHTML = '<p class="text-red-600">Please enter a start date and time</p>';
+                return;
+            }
+            
+            const timeInputs = document.querySelectorAll('.time-input-group');
+            let resultDate = new Date(startDateTime);
+            
+            for (let inputGroup of timeInputs) {
+                const value = parseFloat(inputGroup.querySelector('.time-input').value);
+                const unit = inputGroup.querySelector('.time-unit-select').value;
+                
+                if (isNaN(value) || value < 0) {
+                    timeResult.innerHTML = '<p class="text-red-600">Please enter valid time values</p>';
+                    return;
+                }
+                
+                if (operation === 'add') {
+                    resultDate = addTime(resultDate, value, unit);
+                } else {
+                    resultDate = subtractTime(resultDate, value, unit);
+                }
+            }
+            
+            const formattedResult = formatDateTime(resultDate);
+            const startFormatted = formatDateTime(new Date(startDateTime));
+            
+            timeResult.innerHTML = `<div class="fade-in">
+                <p class="time-result">${formattedResult}</p>
+                <div class="time-details">
+                    <div class="time-detail-item">
+                        <span class="time-detail-label">Start:</span>
+                        <span class="time-detail-value">${startFormatted}</span>
+                    </div>
+                    <div class="time-detail-item">
+                        <span class="time-detail-label">Operation:</span>
+                        <span class="time-detail-value">${operation === 'add' ? 'Added' : 'Subtracted'} time</span>
+                    </div>
+                </div>
+            </div>`;
+        }
+        
+        // Add time to a date
+        function addTime(date, value, unit) {
+            const result = new Date(date);
+            
+            switch(unit) {
+                case 'minutes':
+                    result.setMinutes(result.getMinutes() + value);
+                    break;
+                case 'hours':
+                    result.setHours(result.getHours() + value);
+                    break;
+                case 'days':
+                    result.setDate(result.getDate() + value);
+                    break;
+                case 'weeks':
+                    result.setDate(result.getDate() + value * 7);
+                    break;
+                case 'months':
+                    result.setMonth(result.getMonth() + value);
+                    break;
+                case 'years':
+                    result.setFullYear(result.getFullYear() + value);
+                    break;
+            }
+            
+            return result;
+        }
+        
+        // Subtract time from a date
+        function subtractTime(date, value, unit) {
+            const result = new Date(date);
+            
+            switch(unit) {
+                case 'minutes':
+                    result.setMinutes(result.getMinutes() - value);
+                    break;
+                case 'hours':
+                    result.setHours(result.getHours() - value);
+                    break;
+                case 'days':
+                    result.setDate(result.getDate() - value);
+                    break;
+                case 'weeks':
+                    result.setDate(result.getDate() - value * 7);
+                    break;
+                case 'months':
+                    result.setMonth(result.getMonth() - value);
+                    break;
+                case 'years':
+                    result.setFullYear(result.getFullYear() - value);
+                    break;
+            }
+            
+            return result;
+        }
+        
+        // Format date for display
+        function formatDateTime(date) {
+            const options = { 
+                weekday: 'long', 
+                year: 'numeric', 
+                month: 'long', 
+                day: 'numeric',
+                hour: 'numeric',
+                minute: 'numeric'
+            };
+            return date.toLocaleDateString('en-US', options);
+        }
+        
+        // Calculate duration between two dates
+        function calculateDuration(start, end) {
+            const diffMs = end - start;
+            const days = Math.floor(diffMs / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diffMs % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diffMs % (1000 * 60 * 60)) / (1000 * 60));
+            
+            let formatted = '';
+            if (days > 0) formatted += `${days} day${days !== 1 ? 's' : ''} `;
+            if (hours > 0) formatted += `${hours} hour${hours !== 1 ? 's' : ''} `;
+            if (minutes > 0) formatted += `${minutes} minute${minutes !== 1 ? 's' : ''}`;
+            
+            return {
+                formatted: formatted.trim(),
+                days: days,
+                totalHours: Math.floor(diffMs / (1000 * 60 * 60)),
+                totalMinutes: Math.floor(diffMs / (1000 * 60))
+            };
+        }
+        
+        // Calculate time difference between two dates
+        function calculateTimeDifference(first, second) {
+            let diffMs = Math.abs(second - first);
+            const isNegative = second < first;
+            
+            if (isNegative) {
+                diffMs = first - second;
+            }
+            
+            const days = Math.floor(diffMs / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diffMs % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diffMs % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diffMs % (1000 * 60)) / 1000);
+            
+            let formatted = '';
+            if (days > 0) formatted += `${days} day${days !== 1 ? 's' : ''} `;
+            if (hours > 0) formatted += `${hours} hour${hours !== 1 ? 's' : ''} `;
+            if (minutes > 0) formatted += `${minutes} minute${minutes !== 1 ? 's' : ''} `;
+            if (seconds > 0) formatted += `${seconds} second${seconds !== 1 ? 's' : ''}`;
+            
+            if (isNegative) {
+                formatted = `-${formatted}`;
+            }
+            
+            return {
+                formatted: formatted.trim(),
+                days: isNegative ? -days : days,
+                hours: isNegative ? -hours : hours,
+                minutes: isNegative ? -minutes : minutes,
+                seconds: isNegative ? -seconds : seconds
+            };
+        }
+        
+        // Number Analysis Tool functionality
+        const lcmInputsContainer = document.getElementById('lcm-inputs');
+        const addLcmInputBtn = document.getElementById('add-lcm-input');
+        const calculateLcmBtn = document.getElementById('calculate-lcm');
+        const lcmResult = document.getElementById('lcm-result');
+        const gcfInputsContainer = document.getElementById('gcf-inputs');
+        const addGcfInputBtn = document.getElementById('add-gcf-input');
+        const calculateGcfBtn = document.getElementById('calculate-gcf');
+        const gcfResult = document.getElementById('gcf-result');
+        const primeInput = document.getElementById('prime-input');
+        const calculatePrimeBtn = document.getElementById('calculate-prime');
+        const primeResult = document.getElementById('prime-result');
+        const factorsInput = document.getElementById('factors-input');
+        const calculateFactorsBtn = document.getElementById('calculate-factors');
+        const factorsResult = document.getElementById('factors-result');
+        const minValueInput = document.getElementById('minValue');
+        const maxValueInput = document.getElementById('maxValue');
+        const minRangeInput = document.getElementById('minRange');
+        const maxRangeInput = document.getElementById('maxRange');
+        const findPrimesBtn = document.getElementById('findPrimesBtn');
+        const primesList = document.getElementById('primes-list');
+        const rangeDisplay = document.getElementById('rangeDisplay');
+        const countDisplay = document.getElementById('countDisplay');
+        const quickRangeBtns = document.querySelectorAll('.quick-range');
+        
+        // Initialize number analysis tabs
+        const analysisTabButtons = document.querySelectorAll('#analysisTool .tab-button');
+        const analysisTabContents = document.querySelectorAll('#analysisTool .tab-content');
+        
+        analysisTabButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const tabId = button.getAttribute('data-tab');
+                
+                // Update active tab button
+                analysisTabButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+                
+                // Show active tab content
+                analysisTabContents.forEach(content => content.classList.remove('active'));
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
+        
+        // LCM Calculator functionality
+        function addLcmInput(value = '') {
+            const inputGroup = document.createElement('div');
+            inputGroup.className = 'input-group';
+            
+            inputGroup.innerHTML = `
+                <div class="input-wrapper">
+                    <input type="number" min="1" class="number-input lcm-number" value="${value}" placeholder="Enter a positive integer">
+                    <button class="remove-btn"><i class="fas fa-times"></i></button>
+                </div>
+            `;
+            
+            lcmInputsContainer.appendChild(inputGroup);
+            
+            // Add event listener to remove button
+            const removeBtn = inputGroup.querySelector('.remove-btn');
+            removeBtn.addEventListener('click', () => {
+                if (lcmInputsContainer.children.length > 1) {
+                    inputGroup.remove();
+                }
+            });
+        }
+        
+        // Initialize with two input fields
+        addLcmInput();
+        addLcmInput();
+        
+        // Add more input fields
+        addLcmInputBtn.addEventListener('click', () => {
+            addLcmInput();
+        });
+        
+        // Calculate LCM
+        calculateLcmBtn.addEventListener('click', () => {
+            const numberInputs = document.querySelectorAll('.lcm-number');
+            const numbers = [];
+            
+            // Collect valid numbers
+            for (let input of numberInputs) {
+                const value = parseInt(input.value);
+                if (!isNaN(value) && value > 0) {
+                    numbers.push(value);
+                }
+            }
+            
+            if (numbers.length < 2) {
+                lcmResult.innerHTML = '<p class="text-red-600">Please enter at least two valid positive integers</p>';
+                return;
+            }
+            
+            // Calculate LCM
+            const result = calculateLCM(numbers);
+            lcmResult.innerHTML = `<p class="text-lg text-blue-700 fade-in">LCM of ${numbers.join(', ')} is <strong>${result}</strong></p>`;
+        });
+        
+        // GCF Calculator functionality
+        function addGcfInput(value = '') {
+            const inputGroup = document.createElement('div');
+            inputGroup.className = 'input-group';
+            
+            inputGroup.innerHTML = `
+                <div class="input-wrapper">
+                    <input type="number" min="1" class="number-input gcf-number" value="${value}" placeholder="Enter a positive integer">
+                    <button class="remove-btn"><i class="fas fa-times"></i></button>
+                </div>
+            `;
+            
+            gcfInputsContainer.appendChild(inputGroup);
+            
+            // Add event listener to remove button
+            const removeBtn = inputGroup.querySelector('.remove-btn');
+            removeBtn.addEventListener('click', () => {
+                if (gcfInputsContainer.children.length > 1) {
+                    inputGroup.remove();
+                }
+            });
+        }
+        
+        // Initialize with two input fields
+        addGcfInput();
+        addGcfInput();
+        
+        // Add more input fields
+        addGcfInputBtn.addEventListener('click', () => {
+            addGcfInput();
+        });
+        
+        // Calculate GCF
+        calculateGcfBtn.addEventListener('click', () => {
+            const numberInputs = document.querySelectorAll('.gcf-number');
+            const numbers = [];
+            
+            // Collect valid numbers
+            for (let input of numberInputs) {
+                const value = parseInt(input.value);
+                if (!isNaN(value) && value > 0) {
+                    numbers.push(value);
+                }
+            }
+            
+            if (numbers.length < 2) {
+                gcfResult.innerHTML = '<p class="text-red-600">Please enter at least two valid positive integers</p>';
+                return;
+            }
+            
+            // Calculate GCF
+            const result = calculateGCF(numbers);
+            const commonFactors = listCommonFactors(numbers);
+            
+            let resultHTML = `<p class="text-lg text-blue-700 fade-in">GCF of ${numbers.join(', ')} is <strong>${result}</strong></p>`;
+            
+            if (commonFactors.length > 1) {
+                resultHTML += `
+                    <div class="common-factors fade-in">
+                        <p class="text-gray-700">All common factors: ${commonFactors.join(', ')}</p>
+                    </div>
+                `;
+            }
+            
+            gcfResult.innerHTML = resultHTML;
+        });
+        
+        // Prime Factorization functionality
+        calculatePrimeBtn.addEventListener('click', () => {
+            const number = parseInt(primeInput.value);
+            
+            if (isNaN(number) || number < 2) {
+                primeResult.innerHTML = '<p class="text-red-600">Please enter a valid integer ≥ 2</p>';
+                return;
+            }
+            
+            // Calculate prime factorization
+            const factors = primeFactorization(number);
+            primeResult.innerHTML = `<div class="prime-factorization fade-in">
+                <span class="text-lg text-blue-700">${number} = </span>
+                ${formatPrimeFactors(factors)}
+            </div>`;
+        });
+        
+        // List Factors functionality
+        calculateFactorsBtn.addEventListener('click', () => {
+            const number = parseInt(factorsInput.value);
+            
+            if (isNaN(number) || number < 1) {
+                factorsResult.innerHTML = '<p class="text-red-600">Please enter a valid positive integer</p>';
+                return;
+            }
+            
+            // Calculate factors
+            const factors = listFactors(number);
+            factorsResult.innerHTML = `<div class="fade-in">
+                <p class="text-lg text-blue-700 mb-2">Factors of ${number}:</p>
+                <div class="factor-list">
+                    ${factors.map(factor => `<span class="factor">${factor}</span>`).join('')}
+                </div>
+                <p class="mt-2 text-gray-600">Total: ${factors.length} factors</p>
+            </div>`;
+        });
+        
+        // Find Primes functionality
+        // Initialize with primes between 30 and 50
+        displayPrimes(30, 50);
+        
+        // Sync number inputs with range sliders
+        minValueInput.addEventListener('input', function() {
+            const value = Math.min(parseInt(this.value), parseInt(maxValueInput.value) - 1);
+            this.value = value;
+            minRangeInput.value = value;
+            updateRangeDisplay();
+        });
+        
+        maxValueInput.addEventListener('input', function() {
+            const value = Math.max(parseInt(this.value), parseInt(minValueInput.value) + 1);
+            this.value = value;
+            maxRangeInput.value = value;
+            updateRangeDisplay();
+        });
+        
+        minRangeInput.addEventListener('input', function() {
+            const value = Math.min(parseInt(this.value), parseInt(maxRangeInput.value) - 1);
+            minValueInput.value = value;
+            updateRangeDisplay();
+        });
+        
+        maxRangeInput.addEventListener('input', function() {
+            const value = Math.max(parseInt(this.value), parseInt(minRangeInput.value) + 1);
+            maxValueInput.value = value;
+            updateRangeDisplay();
+        });
+        
+        // Find primes button
+        findPrimesBtn.addEventListener('click', function() {
+            const min = parseInt(minValueInput.value);
+            const max = parseInt(maxValueInput.value);
+            displayPrimes(min, max);
+        });
+        
+        // Quick range buttons
+        quickRangeBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                const min = parseInt(this.getAttribute('data-min'));
+                const max = parseInt(this.getAttribute('data-max'));
+                
+                minValueInput.value = min;
+                maxValueInput.value = max;
+                minRangeInput.value = min;
+                maxRangeInput.value = max;
+                
+                updateRangeDisplay();
+                displayPrimes(min, max);
+            });
+        });
+        
+        // Update range display text
+        function updateRangeDisplay() {
+            const min = parseInt(minValueInput.value);
+            const max = parseInt(maxValueInput.value);
+            rangeDisplay.textContent = `Between ${min} and ${max}`;
+        }
+        
+        // Mathematical functions for number analysis
+        
+        // Calculate LCM of multiple numbers
+        function calculateLCM(numbers) {
+            if (numbers.length === 0) return 0;
+            if (numbers.length === 1) return numbers[0];
+            
+            let result = numbers[0];
+            for (let i = 1; i < numbers.length; i++) {
+                result = lcm(result, numbers[i]);
+            }
+            return result;
+        }
+        
+        // Calculate LCM of two numbers
+        function lcm(a, b) {
+            return Math.abs(a * b) / findGCD(a, b);
+        }
+        
+        // Calculate GCD of two numbers
+        function gcd(a, b) {
+            if (b === 0) return a;
+            return gcd(b, a % b);
+        }
+        
+        // Calculate GCF of multiple numbers
+        function calculateGCF(numbers) {
+            if (numbers.length === 0) return 0;
+            if (numbers.length === 1) return numbers[0];
+            
+            let result = numbers[0];
+            for (let i = 1; i < numbers.length; i++) {
+                result = gcd(result, numbers[i]);
+            }
+            return result;
+        }
+        
+        // List all common factors of multiple numbers
+        function listCommonFactors(numbers) {
+            const gcfValue = calculateGCF(numbers);
+            const factors = listFactors(gcfValue);
+            return factors;
+        }
+        
+        // Prime factorization
+        function primeFactorization(n) {
+            const factors = [];
+            let divisor = 2;
+            
+            while (n >= 2) {
+                if (n % divisor === 0) {
+                    factors.push(divisor);
+                    n = n / divisor;
+                } else {
+                    divisor++;
+                }
+            }
+            
+            return factors;
+        }
+        
+        // Format prime factors for display
+        function formatPrimeFactors(factors) {
+            const counts = {};
+            factors.forEach(factor => {
+                counts[factor] = (counts[factor] || 0) + 1;
+            });
+            
+            return Object.keys(counts)
+                .map(factor => {
+                    const count = counts[factor];
+                    return count > 1 ? `${factor}<sup>${count}</sup>` : factor;
+                })
+                .join(' × ');
+        }
+        
+        // List all factors of a number
+        function listFactors(n) {
+            const factors = [];
+            const sqrt = Math.sqrt(n);
+            
+            for (let i = 1; i <= sqrt; i++) {
+                if (n % i === 0) {
+                    factors.push(i);
+                    if (i !== n / i) {
+                        factors.push(n / i);
+                    }
+                }
+            }
+            
+            // Sort factors in ascending order
+            return factors.sort((a, b) => a - b);
+        }
+        
+        // Check if a number is prime
+        function isPrime(num) {
+            if (num <= 1) return false;
+            if (num <= 3) return true;
+            if (num % 2 === 0 || num % 3 === 0) return false;
+            
+            for (let i = 5; i * i <= num; i += 6) {
+                if (num % i === 0 || num % (i + 2) === 0) return false;
+            }
+            
+            return true;
+        }
+        
+        // Find all primes in a range
+        function findPrimesInRange(min, max) {
+            const primes = [];
+            for (let i = min; i <= max; i++) {
+                if (isPrime(i)) {
+                    primes.push(i);
+                }
+            }
+            return primes;
+        }
+        
+        // Display primes in the results area
+        function displayPrimes(min, max) {
+            const primes = findPrimesInRange(min, max);
+            
+            primesList.innerHTML = '';
+            
+            if (primes.length === 0) {
+                primesList.innerHTML = '<p class="text-gray-500 text-center">No prime numbers found in this range</p>';
+            } else {
+                primes.forEach(prime => {
+                    const primeElement = document.createElement('div');
+                    primeElement.className = 'prime-number fade-in';
+                    primeElement.textContent = prime;
+                    primesList.appendChild(primeElement);
+                });
+            }
+            
+            countDisplay.textContent = `Found ${primes.length} prime number${primes.length !== 1 ? 's' : ''}`;
+            rangeDisplay.textContent = `Between ${min} and ${max}`;
         }
         
         // Initialize all tools
