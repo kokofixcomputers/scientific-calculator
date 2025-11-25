@@ -1083,7 +1083,7 @@
                         <button class="calc-btn number" data-value="3">3</button>
                         <button class="calc-btn operator" data-action="add">+</button>
                         
-                        <button class="calc-btn number" data-value="0">0</button>
+                        <button class="calc-btn number zero" data-value="0">0</button>
                         <button class="calc-btn number" data-value=".">.</button>
                         <button class="calc-btn function" data-action="negate">±</button>
                         <button class="calc-btn equals" data-action="calculate">=</button>
@@ -1923,7 +1923,7 @@
                     .replace(/\^/g, '**'); // Convert ^ to ** for exponentiation
                 
                 // Validate expression to prevent malicious code execution
-                if (!/^[0-9+\-*/().\s]+$/.test(expr.replace(/\*\*/g, ''))) {
+                if (!/^[-0-9+\-*/().\s]+$/.test(expr.replace(/\*\*/g, ''))) {
                     throw new Error("Invalid characters in expression");
                 }
                 
@@ -2125,11 +2125,6 @@
                 // Decimal point
                 else if (event.key === '.') {
                     appendNumber('.');
-                }
-                
-                // Negative sign (for negative numbers)
-                else if (event.key === '-' && !isScientificMode) {
-                    negateNumber();
                 }
                 
                 // Operators
